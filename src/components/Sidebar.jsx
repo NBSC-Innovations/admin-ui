@@ -12,31 +12,77 @@ function DashboardIcon(props) {
   )
 }
 
-function FindGcIcon(props) {
+function StudentsIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" fi ll="none" stroke="currentColor" strokeWidth="2"
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
       strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="11" cy="11" r="7" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
+      <path d="M6 12v5c3 3 9 3 12 0v-5" />
     </svg>
   )
 }
 
-function GroupChatsIcon(props) {
+function InstructorsIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
       strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   )
 }
 
-function ProfileIcon(props) {
+function SubjectsIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
       strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c0-4.418 3.582-7 8-7s8 2.582 8 7" />
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  )
+}
+
+function ClassSectionsIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+      <polyline points="2 17 12 22 22 17" />
+      <polyline points="2 12 12 17 22 12" />
+    </svg>
+  )
+}
+
+function OcrReviewIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+      <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+      <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+    </svg>
+  )
+}
+
+function ActivityLogsIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+function SettingsIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </svg>
   )
 }
@@ -55,9 +101,13 @@ function LogoutIcon(props) {
 // eslint-disable-next-line react-refresh/only-export-components
 export const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: DashboardIcon },
-  { id: 'find-gc', label: 'Find Group Chat', icon: FindGcIcon },
-  { id: 'group-chats', label: 'Group Chats', icon: GroupChatsIcon },
-  { id: 'profile', label: 'Profile', icon: ProfileIcon },
+  { id: 'students', label: 'Students', icon: StudentsIcon },
+  { id: 'instructors', label: 'Instructors', icon: InstructorsIcon },
+  { id: 'subjects', label: 'Subjects', icon: SubjectsIcon },
+  { id: 'class-sections', label: 'Class Sections', icon: ClassSectionsIcon },
+  { id: 'ocr-review', label: 'OCR Review', icon: OcrReviewIcon, badge: 2 },
+  { id: 'activity-logs', label: 'Activity Logs', icon: ActivityLogsIcon },
+  { id: 'settings', label: 'Settings', icon: SettingsIcon },
 ]
 
 function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
@@ -73,13 +123,13 @@ function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
         <div className="sidebar__brand">
           <div className="sidebar__logo">NBSC</div>
           <div className="sidebar__brand-text">
-            <span className="sidebar__brand-title">Admin Portal</span>
+            <span className="sidebar__brand-title">COR Admin</span>
             <span className="sidebar__brand-sub">Northern Bukidnon State College</span>
           </div>
         </div>
 
         <nav className="sidebar__nav" aria-label="Main navigation">
-          {navItems.map(({ id, label, icon: Icon }) => (
+          {navItems.map(({ id, label, icon: Icon, badge }) => (
             <button
               key={id}
               type="button"
@@ -89,6 +139,9 @@ function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
             >
               <Icon className="sidebar__nav-icon" />
               <span>{label}</span>
+              {badge != null && (
+                <span className="sidebar__nav-badge">{badge}</span>
+              )}
             </button>
           ))}
         </nav>
