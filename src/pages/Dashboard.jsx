@@ -1,9 +1,7 @@
-import FacebookPages from '../components/FacebookPages.jsx'
-
 function Dashboard() {
   return (
     <div className="dashboard">
-      <FacebookPages />
+      <p>Dashboard content coming soon.</p>
     </div>
   )
 }
