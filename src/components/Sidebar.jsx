@@ -14,7 +14,7 @@ function DashboardIcon(props) {
 
 function FindGcIcon(props) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+    <svg viewBox="0 0 24 24" fi ll="none" stroke="currentColor" strokeWidth="2"
       strokeLinecap="round" strokeLinejoin="round" {...props}>
       <circle cx="11" cy="11" r="7" />
       <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -73,7 +73,7 @@ function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
         <div className="sidebar__brand">
           <div className="sidebar__logo">NBSC</div>
           <div className="sidebar__brand-text">
-            <span className="sidebar__brand-title">Student Portal</span>
+            <span className="sidebar__brand-title">Admin Portal</span>
             <span className="sidebar__brand-sub">Northern Bukidnon State College</span>
           </div>
         </div>
