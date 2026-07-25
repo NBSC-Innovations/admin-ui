@@ -113,7 +113,7 @@ function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
         <div className="sidebar__brand">
           <div className="sidebar__logo">NBSC</div>
           <div className="sidebar__brand-text">
-            <span className="sidebar__brand-title">COR Admin</span>
+            <span className="sidebar__brand-title">Admin</span>
             <span className="sidebar__brand-sub">Northern Bukidnon State College</span>
           </div>
         </div>
