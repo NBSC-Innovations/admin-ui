@@ -1,7 +1,7 @@
 import { EmptyState } from '../ui/EmptyState'
 import { Inbox } from 'lucide-react'
 
-export function DataTable({ columns, rows, loading, emptyTitle = 'Nothing here yet', rowKey = 'id' }) {
+export function DataTable({ columns, rows, loading, emptyTitle = 'Nothing here yet', emptyDescription, rowKey = 'id' }) {
   if (loading) {
     return <div className="py-16 text-center text-sm text-ink-400">Loading…</div>
   }
