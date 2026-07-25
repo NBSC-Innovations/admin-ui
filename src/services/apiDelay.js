@@ -1,0 +1,1 @@
+export const apiDelay = (ms = 450) => new Promise((resolve) => setTimeout(resolve, ms))
