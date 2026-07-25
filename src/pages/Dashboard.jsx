@@ -46,7 +46,7 @@ export default function Dashboard() {
         <Card className="p-5 lg:col-span-2">
           <p className="mb-1 font-display text-sm font-semibold text-ink-900">COR uploads over time</p>
           <p className="mb-3 text-xs text-ink-400">Daily uploads since onboarding opened</p>
-          <EnrollmentTrendChart data={students} />
+          <EnrollmentTrendChart data={students || []} />
         </Card>
         <RecentActivity logs={logs || []} />
       </div>
@@ -55,7 +55,7 @@ export default function Dashboard() {
         <Card className="p-5">
           <p className="mb-1 font-display text-sm font-semibold text-ink-900">OCR confidence distribution</p>
           <p className="mb-3 text-xs text-ink-400">Extraction confidence across all uploads this term</p>
-          <OCRConfidenceChart data={ocrQueue} />
+          <OCRConfidenceChart data={ocrQueue || []} />
         </Card>
       </div>
     </div>
