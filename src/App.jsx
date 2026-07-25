@@ -3,6 +3,7 @@ import Sidebar, { navItems } from './components/Sidebar.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import UserManagement from './pages/UserManagement.jsx'
 import Students from './pages/Students.jsx'
+import Instructors from './pages/Instructors.jsx'
 import './App.css'
 
 function MenuIcon(props) {
@@ -38,8 +39,10 @@ function App() {
         return <Dashboard />
       case 'user-management':
         return <UserManagement />
-        case 'students':
+      case 'students':
         return <Students />
+      case 'instructors':
+        return <Instructors />
       // case 'find-gc':
       //   return <FindGc />
       // case 'group-chats':
