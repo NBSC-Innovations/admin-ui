@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import UserManagement from './pages/UserManagement.jsx'
 import Students from './pages/Students.jsx'
 import Instructors from './pages/Instructors.jsx'
+import Subjects from './pages/Subjects.jsx'
 import './App.css'
 
 function MenuIcon(props) {
@@ -43,6 +44,8 @@ function App() {
         return <Students />
       case 'instructors':
         return <Instructors />
+      case 'subjects':
+        return <Subjects />
       // case 'find-gc':
       //   return <FindGc />
       // case 'group-chats':
