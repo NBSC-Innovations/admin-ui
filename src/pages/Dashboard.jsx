@@ -1,9 +1,63 @@
-function Dashboard() {
+import { GraduationCap, Layers, ScanLine, Users } from 'lucide-react'
+import { KpiCard } from '../../components/dashboard/KpiCard'
+import { RecentActivity } from '../../components/dashboard/RecentActivity'
+import { EnrollmentTrendChart } from '../../components/charts/EnrollmentTrendChart'
+import { OCRConfidenceChart } from '../../components/charts/OCRConfidenceChart'
+import { Card } from '../../components/ui/Card'
+import { PageHeader } from '../../components/common/PageHeader'
+import { useFetch } from '../../hooks/useFetch'
+import { fetchActivityLogs } from '../../services/activityLogService'
+import { fetchStudents } from '../../services/studentsService'
+import { fetchClassSections } from '../../services/classSectionsService'
+import { fetchOcrQueue } from '../../services/ocrService'
+import { fetchInstructors } from '../../services/instructorsService'
+
+export default function Dashboard() {
+  const { data: logs } = useFetch(fetchActivityLogs, [])
+  const { data: students } = useFetch(fetchStudents, [])
+  const { data: classSections } = useFetch(fetchClassSections, [])
+  const { data: ocrQueue } = useFetch(fetchOcrQueue, [])
+  const { data: instructors } = useFetch(fetchInstructors, [])
+
+  const pendingReview = (ocrQueue || []).filter((item) => item.confidence < 75).length
+  const activeInstructors = (instructors || []).filter((i) => i.status === 'active').length
+
   return (
-    <div className="dashboard">
-      <p>Dashboard content coming soon.</p>
+    <div>
+      <PageHeader
+        title="Overview"
+        description="Snapshot of COR uploads, class-section matching, and moderation activity."
+      />
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <KpiCard label="CORs uploaded" value={students?.length ?? 0} icon={GraduationCap} />
+        <KpiCard label="Class sections created" value={classSections?.length ?? 0} icon={Layers} />
+        <KpiCard
+          label="Pending OCR review"
+          value={pendingReview}
+          delta={pendingReview > 0 ? 'Needs attention' : 'All clear'}
+          deltaTone={pendingReview > 0 ? 'danger' : 'success'}
+          icon={ScanLine}
+        />
+        <KpiCard label="Linked instructors" value={activeInstructors} icon={Users} />
+      </div>
+
+      <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <Card className="p-5 lg:col-span-2">
+          <p className="mb-1 font-display text-sm font-semibold text-ink-900">COR uploads over time</p>
+          <p className="mb-3 text-xs text-ink-400">Daily uploads since onboarding opened</p>
+          <EnrollmentTrendChart data={students} />
+        </Card>
+        <RecentActivity logs={logs || []} />
+      </div>
+
+      <div className="mt-4">
+        <Card className="p-5">
+          <p className="mb-1 font-display text-sm font-semibold text-ink-900">OCR confidence distribution</p>
+          <p className="mb-3 text-xs text-ink-400">Extraction confidence across all uploads this term</p>
+          <OCRConfidenceChart data={ocrQueue} />
+        </Card>
+      </div>
     </div>
   )
 }
-
-export default Dashboard
