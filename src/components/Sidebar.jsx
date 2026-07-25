@@ -55,17 +55,6 @@ function ClassSectionsIcon(props) {
   )
 }
 
-function OcrReviewIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-      strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-      <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-      <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-      <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-    </svg>
-  )
-}
 
 function ActivityLogsIcon(props) {
   return (
@@ -103,13 +92,12 @@ function LogoutIcon(props) {
 // eslint-disable-next-line react-refresh/only-export-components
 export const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: DashboardIcon },
+  { id: 'user-management', label: 'User Management', icon: UserManagementIcon },
   { id: 'students', label: 'Students', icon: StudentsIcon },
   { id: 'instructors', label: 'Instructors', icon: InstructorsIcon },
   { id: 'subjects', label: 'Subjects', icon: SubjectsIcon },
   { id: 'class-sections', label: 'Class Sections', icon: ClassSectionsIcon },
-  { id: 'ocr-review', label: 'OCR Review', icon: OcrReviewIcon, badge: 2 },
   { id: 'activity-logs', label: 'Activity Logs', icon: ActivityLogsIcon },
-  { id: 'user-management', label: 'User Management', icon: UserManagementIcon },
 ]
 
 function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
