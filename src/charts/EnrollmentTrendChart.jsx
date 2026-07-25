@@ -1,5 +1,5 @@
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
-import { EmptyState } from '../ui/EmptyState'
+import { EmptyState } from '../components/ui/EmptyState'
 import { TrendingUp } from 'lucide-react'
 
 // Expects `data` = array of students with a `dateUploaded` field (e.g. from fetchStudents()).

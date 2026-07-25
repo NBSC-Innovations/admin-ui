@@ -1,5 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts'
-import { EmptyState } from '../ui/EmptyState'
+import { EmptyState } from '../components/ui/EmptyState'
 import { ScanLine } from 'lucide-react'
 
 const BUCKETS = [
