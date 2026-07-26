@@ -9,3 +9,9 @@ export const ACCOUNT_STATUS = {
   INACTIVE: 'inactive',
   PENDING: 'pending',
 }
+
+export const DEPARTMENTS = {
+  IBM: 'IBM',
+  ICS: 'ICS',
+  ITE: 'ITE',
+}
