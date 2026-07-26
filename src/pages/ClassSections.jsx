@@ -8,6 +8,7 @@ import { Card } from '../components/ui/Card'
 import { ConfirmDialog } from '../components/modals/ConfirmDialog'
 import { useFetch } from '../hooks/useFetch'
 import { fetchClassSections } from '../services/classSectionsService'
+import { deriveDepartmentFromSectionCode } from '../utils/deriveDepartment'
 
 export default function ClassSections() {
   const { data: sections, loading } = useFetch(fetchClassSections, [])
@@ -35,6 +36,8 @@ export default function ClassSections() {
     { key: 'instructor', header: 'Instructor' },
     { key: 'schedule', header: 'Schedule' },
     { key: 'room', header: 'Room' },
+    { key: 'sectionCode', header: 'Section Code', render: (row) => <span className="font-mono text-xs">{row.sectionCode}</span> },
+    { key: 'department', header: 'Department', render: (row) => deriveDepartmentFromSectionCode(row.sectionCode) },
     {
       key: 'memberCount',
       header: 'Members',

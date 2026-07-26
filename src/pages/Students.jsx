@@ -11,6 +11,7 @@ import { Select } from '../components/ui/Select'
 import { useFetch } from '../hooks/useFetch'
 import { fetchStudents } from '../services/studentsService'
 import { DEPARTMENTS } from '../constants'
+import { deriveDepartmentFromProgram } from '../utils/deriveDepartment'
 
 export default function Students() {
   const { data: students, loading } = useFetch(fetchStudents, [])
@@ -20,7 +21,7 @@ export default function Students() {
   const filtered = useMemo(() => {
     if (!students) return []
     return students
-      .filter((s) => (department === 'all' ? true : s.department === department))
+      .filter((s) => (department === 'all' ? true : deriveDepartmentFromProgram(s.program) === department))
       .filter((s) =>
         [s.name, s.id, s.email, s.program].join(' ').toLowerCase().includes(query.toLowerCase()),
       )
