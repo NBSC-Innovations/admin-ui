@@ -52,12 +52,6 @@ function App() {
         return <ClassSections />
       case 'activity-logs':
         return <ActivityLogs />
-      // case 'find-gc':
-      //   return <FindGc />
-      // case 'group-chats':
-      //   return <GroupChats />
-      // case 'profile':
-      //   return <Profile />
       default:
         return <Dashboard />
     }
