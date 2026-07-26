@@ -6,6 +6,7 @@ import Students from './pages/Students.jsx'
 import Instructors from './pages/Instructors.jsx'
 import Subjects from './pages/Subjects.jsx'
 import ClassSections from './pages/ClassSections.jsx'
+import ActivityLogs from './pages/ActivityLogs.jsx'
 import './App.css'
 
 function MenuIcon(props) {
@@ -49,6 +50,8 @@ function App() {
         return <Subjects />
       case 'class-sections':
         return <ClassSections />
+      case 'activity-logs':
+        return <ActivityLogs />
       // case 'find-gc':
       //   return <FindGc />
       // case 'group-chats':
