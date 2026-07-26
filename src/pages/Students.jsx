@@ -40,7 +40,7 @@ export default function Students() {
         </div>
       ),
     },
-    { key: 'department', header: 'Department' },
+    { key: 'department', header: 'Department', render: (row) => DEPARTMENTS[row.department] || row.department },
     { key: 'program', header: 'Section' },
     { key: 'sectionsJoined', header: 'GCs joined' },
     { key: 'corStatus', header: 'COR status', render: (row) => <StatusPill status={row.corStatus} /> },
