@@ -11,7 +11,7 @@ export const ACCOUNT_STATUS = {
 }
 
 export const DEPARTMENTS = {
-  IBM: 'IBM',
-  ICS: 'ICS',
-  ITE: 'ITE',
+  IBM: 'Institute of Business Management (IBM)',
+  ICS: 'Institute for Computer Studies (ICS)',
+  ITE: 'Institute of Teacher Education (ITE)',
 }
