@@ -24,30 +24,33 @@ Opens at `http://localhost:5173` (or next available port) — straight into the 
 | Activity Logs | `activity-logs` | Audit trail (admin/instructor/student/system actions), with IP address column |
 
 ## Project structure
+
+```
 src/
 ├── assets/
-├── charts/ # EnrollmentTrendChart, OCRConfidenceChart
+├── charts/                    # EnrollmentTrendChart, OCRConfidenceChart
 ├── components/
-│ ├── common/ # PageHeader, SearchInput, StatusPill
-│ ├── dashboard/ # KpiCard, RecentActivity
-│ ├── modals/ # Modal, ConfirmDialog, EditUserModal
-│ ├── tables/ # DataTable (generic, reusable)
-│ ├── ui/ # Button, Badge, Card, Input, Select, Avatar, EmptyState
-│ └── Sidebar.jsx # Custom sidebar nav (no react-router, id-based)
+│   ├── common/                 # PageHeader, SearchInput, StatusPill
+│   ├── dashboard/               # KpiCard, RecentActivity
+│   ├── modals/                  # Modal, ConfirmDialog, EditUserModal
+│   ├── tables/                  # DataTable (generic, reusable)
+│   ├── ui/                      # Button, Badge, Card, Input, Select, Avatar, EmptyState
+│   └── Sidebar.jsx               # Custom sidebar nav (no react-router, id-based)
 ├── constants/
-│ └── index.js # ROLES, ACCOUNT_STATUS, DEPARTMENTS
-├── data/ # Mock data per resource (temporary — swap for Supabase)
+│   └── index.js                  # ROLES, ACCOUNT_STATUS, DEPARTMENTS
+├── data/                          # Mock data per resource (temporary — swap for Supabase)
 ├── hooks/
-│ └── useFetch.js # Generic async-state hook
-├── pages/ # Flat pages (no subfolders), one per resource
-├── services/ # Fetch functions — this is what changes when Supabase is wired up
+│   └── useFetch.js                # Generic async-state hook
+├── pages/                          # Flat pages (no subfolders), one per resource
+├── services/                        # Fetch functions — this is what changes when Supabase is wired up
 ├── styles/
-│ └── Sidebar.css
+│   └── Sidebar.css
 └── utils/
-├── classNames.js
-├── formatDate.js
-├── deriveDepartment.js # Derives department from program/section code prefix
-└── naturalSort.js # For future sorting of section codes
+    ├── classNames.js
+    ├── formatDate.js
+    ├── deriveDepartment.js          # Derives department from program/section code prefix
+    └── naturalSort.js               # For future sorting of section codes
+```
 
 ## Naming conventions
 
