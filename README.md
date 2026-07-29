@@ -1,16 +1,45 @@
-# React + Vite
+## Naming conventions nga gigamit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Student ID / email:** `YYYYNNNN` format (e.g. `20234881`), email = `{id}@nbsc.edu.ph`
+- **Instructor email:** `{apilyedo}.{unang letra sa first name}@nbsc.edu.ph` (e.g. `delacruz.j@nbsc.edu.ph`)
+- **Departments:** IBM (Institute of Business Management), ICS (Institute for Computer Studies), ITE (Institute of Teacher Education) — full names naka-store sa `constants/index.js` under `DEPARTMENTS`
+- **Class section codes:** IT01–IT100 (ICS), IBM01–IBM200, ITE01–ITE150 — derived department gamit ang `utils/deriveDepartment.js`
 
-Currently, two official plugins are available:
+## Pag-connect sa Supabase (sunod nga step)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Ang `src/services/*.js` files ra ang i-usab — dili ang pages o components. Pananglitan:
 
-## React Compiler
+```js
+// Karon (mock):
+import { students } from '../data/students'
+export async function fetchStudents() {
+  await apiDelay()
+  return students
+}
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+// Human (Supabase):
+import { supabase } from './supabaseClient'
+export async function fetchStudents() {
+  const { data, error } = await supabase.from('students').select('*')
+  if (error) throw error
+  return data
+}
+```
 
-## Expanding the ESLint configuration
+Steps:
+1. `npm install @supabase/supabase-js`
+2. Himoa ang `src/services/supabaseClient.js`
+3. Butangi og `.env` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`)
+4. I-usab ang matag `fetchX()` function sa `services/` — mapping snake_case (DB) → camelCase (UI) kung kinahanglan
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Wala pa nabuhat / gitangtang
+
+- OCR Review page — gitangtang na base sa team decision
+- Settings page — gitangtang na
+- Login/auth — wala pa gi-implement, mock session ra
+
+## Known trade-offs (mock-data stage)
+
+- Walay real-time updates — mag-load ra ang data isa ka higayon per page visit
+- Ang "Add user", "Add subject", "Invite instructor" buttons UI-only pa, wala pa functional
+- Sample data lang ang subjects (dili tibuok listahan gikan sa Permanent Records)
