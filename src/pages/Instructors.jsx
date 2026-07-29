@@ -10,7 +10,7 @@ import { Card } from '../components/ui/Card'
 import { Select } from '../components/ui/Select'
 import { useFetch } from '../hooks/useFetch'
 import { fetchInstructors } from '../services/instructorService'
-import { DEPARTMENTS } from '../constants'
+import { INSTRUCTOR_DEPARTMENTS } from '../constants'
 
 export default function Instructors() {
   const { data: instructors, loading } = useFetch(fetchInstructors, [])
@@ -65,7 +65,7 @@ export default function Instructors() {
             <SearchInput value={query} onChange={setQuery} placeholder="Search by name or department…" className="max-w-xs" />
             <Select value={department} onChange={(e) => setDepartment(e.target.value)}>
               <option value="all">All departments</option>
-              {Object.values(DEPARTMENTS).map((d) => (
+              {Object.values(INSTRUCTOR_DEPARTMENTS).map((d) => (
                 <option key={d} value={d}>{d}</option>
               ))}
             </Select>

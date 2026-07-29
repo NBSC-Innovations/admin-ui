@@ -10,7 +10,13 @@ export const ACCOUNT_STATUS = {
   PENDING: 'pending',
 }
 
-export const DEPARTMENTS = {
+export const STUDENT_DEPARTMENTS = {
+  IBM: 'Institute of Business Management (IBM)',
+  ICS: 'Institute for Computer Studies (ICS)',
+  ITE: 'Institute of Teacher Education (ITE)',
+}
+
+export const INSTRUCTOR_DEPARTMENTS = {
   IBM: 'Institute of Business Management (IBM)',
   ICS: 'Institute for Computer Studies (ICS)',
   ITE: 'Institute of Teacher Education (ITE)',

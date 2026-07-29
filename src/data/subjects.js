@@ -19,4 +19,17 @@ export const subjects = [
   { id: 'SUB-012', code: 'ITE101', title: 'Foundations of Education', units: 3, program: 'BSED', department: 'Institute of Teacher Education (ITE)' },
   { id: 'SUB-013', code: 'ITE105', title: 'Facilitating Learner-Centered Teaching', units: 3, program: 'BSED', department: 'Institute of Teacher Education (ITE)' },
   { id: 'SUB-014', code: 'ITE112', title: 'Assessment in Learning 1', units: 3, program: 'BSED', department: 'Institute of Teacher Education (ITE)' },
-]
+
+  // DGEC — general education subjects, shared across programs
+  { id: 'SUB-015', code: 'GE1', title: 'Understanding the Self', units: 3, program: 'General Education', department: 'Department of General Education and Culture (DGEC)' },
+  { id: 'SUB-016', code: 'GE2', title: 'Readings in Philippine History', units: 3, program: 'General Education', department: 'Department of General Education and Culture (DGEC)' },
+  { id: 'SUB-017', code: 'GE12', title: "Earth and Life's Ecosystem", units: 3, program: 'General Education', department: 'Department of General Education and Culture (DGEC)' },
+
+  // NSTP — required for all first-year students
+  { id: 'SUB-021', code: 'NSTP1', title: 'National Service Training Program 1', units: 3, program: 'General Education', department: 'National Service Training Program (NSTP)' },
+  { id: 'SUB-022', code: 'NSTP2', title: 'National Service Training Program 2', units: 3, program: 'General Education', department: 'National Service Training Program (NSTP)' },
+
+  // PATHFIT — required PE subjects
+  { id: 'SUB-023', code: 'PATHFIT1', title: 'Movement Competency Training', units: 2, program: 'General Education', department: 'Physical Fitness and Health (PATHFIT)' },
+  { id: 'SUB-024', code: 'PATHFIT2', title: 'Exercise-based Fitness Activities', units: 2, program: 'General Education', department: 'Physical Fitness and Health (PATHFIT)' },
+] 
