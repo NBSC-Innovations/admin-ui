@@ -11,7 +11,7 @@ import { Select } from '../components/ui/Select'
 import { useFetch } from '../hooks/useFetch'
 import { fetchStudents } from '../services/studentsService'
 import { STUDENT_DEPARTMENTS } from '../constants'
-import { PARTMENTSderiveDepartmentFromProgram } from '../utils/deriveDepartment'
+import { deriveDepartmentFromProgram } from '../utils/deriveDepartment'
 
 export default function Students() {
   const { data: students, loading } = useFetch(fetchStudents, [])
@@ -41,7 +41,7 @@ export default function Students() {
         </div>
       ),
     },
-    { key: 'department', header: 'Department', render: (row) => DEPARTMENTS[row.department] || row.department },
+    { key: 'department', header: 'Department', render: (row) => deriveDepartmentFromProgram(row.program) },
     { key: 'program', header: 'Section' },
     { key: 'sectionsJoined', header: 'GCs joined' },
     { key: 'corStatus', header: 'COR status', render: (row) => <StatusPill status={row.corStatus} /> },
