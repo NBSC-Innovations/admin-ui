@@ -29,11 +29,6 @@ function App() {
     setSidebarOpen(false)
   }
 
-  const handleLogout = () => {
-    // TODO: wire up actual logout logic
-    console.log('Logout clicked')
-  }
-
   const currentLabel = navItems.find((item) => item.id === activePage)?.label ?? ''
 
   const renderPage = () => {
@@ -64,7 +59,6 @@ function App() {
         onNavigate={handleNavigate}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
-        onLogout={handleLogout}
       />
 
       <div className="main-content">

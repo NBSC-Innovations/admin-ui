@@ -12,7 +12,7 @@ import { Select } from '../components/ui/Select'
 import { EditUserModal } from '../components/modals/EditUserModal'
 import { useFetch } from '../hooks/useFetch'
 import { fetchUsers, updateUserRole, updateUserStatus } from '../services/usersService'
-import { ROLES } from '../constants'
+import { ROLES, ROLE_LABEL } from '../constants'
 
 const ROLE_TONE = {
   [ROLES.ADMIN]: 'gold',
@@ -56,7 +56,11 @@ export default function UserManagement() {
         </div>
       ),
     },
-    { key: 'role', header: 'Role', render: (row) => <Badge tone={ROLE_TONE[row.role] || 'neutral'}>{row.role}</Badge> },
+    {
+      key: 'role',
+      header: 'Role',
+      render: (row) => <Badge tone={ROLE_TONE[row.role] || 'neutral'}>{ROLE_LABEL[row.role] || row.role}</Badge>,
+    },
     { key: 'status', header: 'Status', render: (row) => <StatusPill status={row.status} /> },
     { key: 'dateCreated', header: 'Created' },
     {
@@ -75,6 +79,11 @@ export default function UserManagement() {
       <PageHeader
         title="User management"
         description="Every account in the system — students, instructors, and admins — with role and access control."
+        actions={
+          <Button icon={UserPlus} size="sm">
+            Add user
+          </Button>
+        }
       />
 
       <Card className="p-4">
@@ -83,10 +92,12 @@ export default function UserManagement() {
             <SearchInput value={query} onChange={setQuery} placeholder="Search by name or email…" className="max-w-xs" />
             <Select value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="all">All roles</option>
-              {Object.values(ROLES).map((r) => <option key={r} value={r}>{r}</option>)}
+              {Object.values(ROLES).map((r) => (
+                <option key={r} value={r}>{ROLE_LABEL[r]}</option>
+              ))}
             </Select>
           </div>
-          <Button icon={UserPlus} size="sm">Add user</Button>
+          <p className="text-xs text-ink-400">{filtered.length} of {rows.length} users</p>
         </div>
         <DataTable columns={columns} rows={filtered} loading={loading} emptyTitle="No users found" />
       </Card>

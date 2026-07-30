@@ -55,7 +55,6 @@ function ClassSectionsIcon(props) {
   )
 }
 
-
 function ActivityLogsIcon(props) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -78,17 +77,6 @@ function UserManagementIcon(props) {
   )
 }
 
-function LogoutIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-      strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-      <polyline points="16 17 21 12 16 7" />
-      <line x1="21" y1="12" x2="9" y2="12" />
-    </svg>
-  )
-}
-
 // eslint-disable-next-line react-refresh/only-export-components
 export const navItems = [
   { id: 'dashboard', label: 'Dashboard', icon: DashboardIcon },
@@ -100,7 +88,7 @@ export const navItems = [
   { id: 'activity-logs', label: 'Activity Logs', icon: ActivityLogsIcon },
 ]
 
-function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
+function Sidebar({ activePage, onNavigate, isOpen, onClose }) {
   return (
     <>
       <div
@@ -129,19 +117,10 @@ function Sidebar({ activePage, onNavigate, isOpen, onClose, onLogout }) {
             >
               <Icon className="sidebar__nav-icon" />
               <span>{label}</span>
-              {badge != null && (
-                <span className="sidebar__nav-badge">{badge}</span>
-              )}
+              {badge != null && <span className="sidebar__nav-badge">{badge}</span>}
             </button>
           ))}
         </nav>
-
-        <div className="sidebar__footer">
-          <button type="button" className="sidebar__logout" onClick={onLogout}>
-            <LogoutIcon className="sidebar__nav-icon" />
-            <span>Logout</span>
-          </button>
-        </div>
       </aside>
     </>
   )

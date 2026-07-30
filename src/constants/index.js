@@ -1,13 +1,31 @@
-export const ROLES = {
-  STUDENT: 'Student',
-  INSTRUCTOR: 'Instructor',
-  ADMIN: 'System Admin',
+export const OCR_STATUS = {
+  NEEDS_REVIEW: 'needs_review',
+  CONFIRMED: 'confirmed',
+  AUTO_MATCHED: 'auto_matched',
+}
+
+export const OCR_STATUS_LABEL = {
+  [OCR_STATUS.NEEDS_REVIEW]: 'Needs review',
+  [OCR_STATUS.CONFIRMED]: 'Confirmed',
+  [OCR_STATUS.AUTO_MATCHED]: 'Auto-matched',
 }
 
 export const ACCOUNT_STATUS = {
   ACTIVE: 'active',
   INACTIVE: 'inactive',
   PENDING: 'pending',
+}
+
+export const ROLES = {
+  STUDENT: 'student',
+  INSTRUCTOR: 'instructor',
+  ADMIN: 'admin',
+}
+
+export const ROLE_LABEL = {
+  [ROLES.STUDENT]: 'Student',
+  [ROLES.INSTRUCTOR]: 'Instructor',
+  [ROLES.ADMIN]: 'System Admin',
 }
 
 export const STUDENT_DEPARTMENTS = {
@@ -26,3 +44,6 @@ export const INSTRUCTOR_DEPARTMENTS = {
   NSTP: 'National Service Training Program (NSTP)',
   PATHFIT: 'Physical Fitness and Health (PATHFIT)',
 }
+
+export const DATA_PRIVACY_NOTE =
+  'Student data is scoped under RA 10173 (Data Privacy Act). COR images are retained only until extraction is confirmed.'

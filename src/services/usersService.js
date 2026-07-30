@@ -1,17 +1,27 @@
-import { users } from '../data/users'
-import { apiDelay } from './apiDelay'
+import { supabase } from './supabaseClient'
 
 export async function fetchUsers() {
-  await apiDelay()
-  return users
+  const { data, error } = await supabase.from('profiles').select('*')
+  if (error) throw error
+
+  return data.map((row) => ({
+    id: row.id,
+    name: row.full_name,
+    email: row.email,
+    role: row.role,
+    status: row.status,
+    dateCreated: row.created_at?.split('T')[0],
+  }))
 }
 
 export async function updateUserRole(userId, role) {
-  await apiDelay(300)
+  const { error } = await supabase.from('profiles').update({ role }).eq('id', userId)
+  if (error) throw error
   return { userId, role }
 }
 
 export async function updateUserStatus(userId, status) {
-  await apiDelay(300)
+  const { error } = await supabase.from('profiles').update({ status }).eq('id', userId)
+  if (error) throw error
   return { userId, status }
 }

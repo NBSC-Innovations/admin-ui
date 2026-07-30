@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Modal } from './Modal'
 import { Button } from '../ui/Button'
 import { Select } from '../ui/Select'
-import { ROLES, ACCOUNT_STATUS } from '../../constants'
+import { ROLES, ROLE_LABEL, ACCOUNT_STATUS } from '../../constants'
 
 export function EditUserModal({ open, onClose, user, onSave }) {
   const [role, setRole] = useState(user?.role ?? '')
@@ -26,7 +26,7 @@ export function EditUserModal({ open, onClose, user, onSave }) {
         <div>
           <label className="mb-1.5 block text-sm font-medium text-ink-900">Role</label>
           <Select value={role} onChange={(e) => setRole(e.target.value)} className="w-full">
-            {Object.values(ROLES).map((r) => <option key={r} value={r}>{r}</option>)}
+            {Object.values(ROLES).map((r) => <option key={r} value={r}>{ROLE_LABEL[r]}</option>)}
           </Select>
         </div>
         <div>
